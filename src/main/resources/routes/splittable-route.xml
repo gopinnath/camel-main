@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<routes id="camel" xmlns="http://camel.apache.org/schema/spring">
+    <route>
+        <from uri="timer:foo?period={{myPeriod}}"/>
+        <split>
+        	<method ref="myBean" method="countries"/>
+        	<bean ref="myBean" method="greetCountry"/>
+        	<log message="${body}"/>
+        </split>
+    </route>
+</routes>
